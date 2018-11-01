@@ -13,8 +13,8 @@
 
       <mat-form-field>
         <mat-select placeholder="学部一覧" [(value)]="selectedDepartment" [formControl]="departmentControl" multiple>
-          <mat-option>None</mat-option>
-          <mat-option>All</mat-option>
+          <mat-option value="None">None</mat-option>
+          <mat-option value="All">All</mat-option>
           <mat-optgroup *ngFor="let group of departmentGroups" [label]="group.name" [disabled]="group.disabled">
             <mat-option *ngFor="let department of group.departments" [value]="department.value">
               {{ department.viewValue }}
@@ -25,8 +25,8 @@
 
       <mat-form-field>
         <mat-select placeholder="ジャンル" [(value)]="selectedGenre" [formControl]="genreControl" multiple>
-          <mat-option>None</mat-option>
-          <mat-option>All</mat-option>
+          <mat-option value="None">None</mat-option>
+          <mat-option value="All">All</mat-option>
           <mat-option *ngFor="let genre of genres" [value]="genre">{{ genre }}</mat-option>
         </mat-select>
       </mat-form-field>
