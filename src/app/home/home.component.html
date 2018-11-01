@@ -1,0 +1,76 @@
+<div class="container">
+  <h2 class="lora">お知らせ一覧</h2>
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          絞り込み
+        </mat-panel-title>
+        <mat-panel-description>
+          検索する学部、ジャンルを入力してください。
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <mat-select placeholder="学部一覧" [(value)]="selectedDepartment" [formControl]="departmentControl" multiple>
+          <mat-option>None</mat-option>
+          <mat-option>All</mat-option>
+          <mat-optgroup *ngFor="let group of departmentGroups" [label]="group.name" [disabled]="group.disabled">
+            <mat-option *ngFor="let department of group.departments" [value]="department.value">
+              {{ department.viewValue }}
+            </mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="ジャンル" [(value)]="selectedGenre" [formControl]="genreControl" multiple>
+          <mat-option>None</mat-option>
+          <mat-option>All</mat-option>
+          <mat-option *ngFor="let genre of genres" [value]="genre">{{ genre }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div *ngIf="selectedDepartment">
+    <p *ngFor="let department of selectedDepartment">{{ department }}</p>
+  </div>
+  <div *ngIf="selectedGenre">
+    <p *ngFor="let genre of selectedGenre">{{ genre }}</p>
+  </div>
+  <ul>
+    <li *ngFor="let article of articles">
+      <ul>
+        <li *ngFor="let department of article.tags[0]"
+            [ngClass]="{
+              'bs': department === 'BS',
+              'cs': department === 'CS',
+              'es': department === 'ES',
+              'ms': department === 'MS',
+              'hs': department === 'HS',
+              'ds': department === 'DS',
+              'nu': department === 'NU',
+              'grad': department == '院'
+          }"
+          class="department">{{ department }}
+        </li>
+      </ul>
+      <ul>
+          <li *ngFor="let tag of article.tags[1]" 
+              [ngClass]="{
+                'cancelled': tag === '休講情報',
+                'supplied': tag === '補講情報',
+                'classification': tag === 'クラス分け',
+                'recruitment': tag === '募集',
+                'announcement': tag === '発表',
+                'employment': tag === '就職情報',
+                'notification': tag === '告知',
+                'others': tag === 'その他'
+            }"
+            class="tag">{{ tag }}</li>
+      </ul>
+      <a href="{{ article.url }}">{{ article.title }}</a>
+    </li>
+  </ul>
+</div>

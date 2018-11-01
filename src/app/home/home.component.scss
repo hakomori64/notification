@@ -1,0 +1,140 @@
+    h2 {
+        margin: 50px auto;
+        width: 100vw;
+        text-align: center;
+    }
+
+    ul {
+        padding: 0;
+        position: relative;
+        left: 50%;
+
+        li {
+            position: relative;
+            left: -50%;
+            width: 80%;
+            color: black;
+            border-left: solid 8px orange;
+            margin-bottom: 1px;
+            line-height: 1.5;
+            border-radius: 0px 15px 15px 0px;
+            padding: 0.5em;
+            list-style-type: none!important;
+            background: whitesmoke;
+            margin: 10px;
+            box-shadow: 3px 3px 3px #777;
+
+            a {
+                font-family: 'Lora', serif;
+            }
+
+            a:link {
+                color: black;
+                font-size: 30px;
+                margin: 5px;
+                text-decoration: none;
+            }
+
+            a:visited {
+                color: purple;
+            }
+
+            a:hover {
+                color: gray;
+            }
+        
+
+            ul {
+                li.department {
+                    display: inline-block;
+                    width: 40px;
+                    height: 20px;
+                    margin: 2px;
+                    text-align: center;
+                    color: white;
+                    border-radius: 3px;
+                    border-left: none;
+                    font-family: 'Lora', 'serif';
+                }
+
+                li.tag {
+                    display: inline-block;
+                    height: 20px;
+                    width: 60px;
+                    margin: 2px;
+                    text-align: center;
+                    color: white;
+                    border-radius: 0px;
+                    border-left: none;
+                    font-family: 'Lora', serif;
+                    font-size: 70%;
+                    box-shadow: none;
+                }
+
+                li.bs {
+                    background-color: green; 
+                }
+
+                li.cs {
+                    background-color: blue;
+                }
+
+                li.ms {
+                    background-color: #a41034;
+                }
+
+                li.es {
+                    background-color: #393f54;
+                }
+
+                li.hs {
+                    background-color: hotpink;
+                }
+
+                li.ds {
+                    background-color: orange;
+                }
+
+                li.grad {
+                    background-color: purple;
+                }
+
+                li.nu {
+                    background-color: pink;
+                }
+
+                li.cancelled {
+                    background-color: gray;
+                }
+
+                li.supplied {
+                    background-color: green;
+                }
+
+                li.classification {
+                    background-color: #acdbda;
+                }
+
+                li.recruitment {
+                    background-color: #abacdb;
+                }
+
+                li.announcement {
+                    background-color: yellowgreen;
+                }
+
+                li.employment {
+                    background-color: #789997;
+                }
+
+                li.notification {
+                    background-color: #aaa;
+                }
+
+                li.others {
+                    background-color: black;
+                }
+
+            }
+        }
+    }
