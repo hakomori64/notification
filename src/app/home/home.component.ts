@@ -2,6 +2,7 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import { ArticlesService } from '../articles.service';
 import { Article } from '../../article';
 import { FormControl } from '@angular/forms';
+import { CompileTemplateMetadata } from '@angular/compiler';
 
 export interface Department {
   value: string;
@@ -63,7 +64,10 @@ export class HomeComponent implements OnInit {
 
   public selectedDepartment:string[];
   public selectedGenre:string[];
-
+  public numberOfArticles;
+  
+  p: number = 1;
+  
 
   constructor(private articlesService: ArticlesService) { }
 
@@ -75,6 +79,7 @@ export class HomeComponent implements OnInit {
     let genresforInit = this.genres.concat();
     genresforInit.push("All");
     //console.log("genresforInit: " + genresforInit);
+    this.articles = [];
     this.getArticles();
     this.departmentControl = new FormControl(departmentsforInit);
     this.genreControl = new FormControl(genresforInit);
@@ -87,8 +92,13 @@ export class HomeComponent implements OnInit {
 
   getArticles(): void {
     this.articlesService.getArticles().subscribe((data: Article[]) => {
-      this.articles = data;
-      this.originalArticles = data;
+      this.articles = data.concat();
+      this.originalArticles = data.concat();
+    },
+    
+    () => {
+      this.numberOfArticles = this.articles.length;
+      console.log(this.numberOfArticles);
     });
   }
 
@@ -109,6 +119,11 @@ export class HomeComponent implements OnInit {
     if (event.value.includes("All")) {
       this.selectedDepartment = this.departmentList.concat();
       this.selectedDepartment.push("All");
+    }
+
+    if (event.value.includes("None")) {
+      this.selectedDepartment = [];
+      this.selectedDepartment.push("None");
     }
 
     //console.log(event)
@@ -143,6 +158,11 @@ export class HomeComponent implements OnInit {
       //console.log(this.genres);
     }
 
+    if (event.value.includes("None")) {
+      this.selectedGenre = [];
+      this.selectedGenre.push("None");
+    }
+
     //console.log(event)
     for(let i = 0; i < this.originalArticles.length; i++) {
       if (this.originalArticles[i].tags[1].some(function (v) {
@@ -158,5 +178,24 @@ export class HomeComponent implements OnInit {
         this.articles.push(_articles[i]);
       }
     }
+  }
+  checkallDepartments(event) {
+    console.log("checkallDepartments function is called");
+    this.selectedDepartment = this.departmentList.concat();
+  }
+
+  uncheckallDepartments(event) {
+    console.log("uncheckallDepartments function is called");
+    this.selectedDepartment = [];
+  }
+
+  checkallGenre(event) {
+    console.log("checkallGenre function is called");
+    this.selectedGenre = this.genres.concat();
+  }
+
+  uncheckallGenre(event) {
+    console.log("uncheckallGenre function is called");
+    this.selectedGenre = [];
   }
 }

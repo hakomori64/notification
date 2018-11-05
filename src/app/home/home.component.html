@@ -13,9 +13,10 @@
 
       <mat-form-field>
         <mat-select name="departments" (selectionChange)="changeDepartment($event)" placeholder="学部一覧" [(value)]="selectedDepartment" [formControl]="departmentControl" multiple>
-          <mat-option #AllDepartments value="All">All</mat-option>
+          <button mat-button (click)="checkallDepartments($event)" value="All">All</button>
+          <button mat-button (click)="uncheckallDepartments($event)" value="None">None</button>
           <mat-optgroup *ngFor="let group of departmentGroups" [label]="group.name" [disabled]="group.disabled">
-            <mat-option [disabled]="AllDepartments.selected" *ngFor="let department of group.departments" [value]="department.value">
+            <mat-option *ngFor="let department of group.departments" [value]="department.value">
               {{ department.viewValue }}
             </mat-option>
           </mat-optgroup>
@@ -24,12 +25,15 @@
 
       <mat-form-field>
         <mat-select name="genres" (selectionChange)="changeGenre($event)" placeholder="ジャンル" [(value)]="selectedGenre" [formControl]="genreControl" multiple>
-          <mat-option #AllGenres value="All">All</mat-option>
-          <mat-option [disabled]="AllGenres.selected" *ngFor="let genre of genres" [value]="genre">{{ genre }}</mat-option>
+          <button mat-button (click)="checkallGenre($event)" value="All">All</button>
+          <button mat-button (click)="uncheckallGenre($event)" value="None">None</button>
+          <mat-option *ngFor="let genre of genres" [value]="genre">{{ genre }}</mat-option>
         </mat-select>
       </mat-form-field>
     </mat-expansion-panel>
   </mat-accordion>
+
+  <pagination-controls *ngIf="articles.length !== 0" (pageChange)="p = $event"></pagination-controls>
 
   <!--<div *ngIf="selectedDepartment">
     <p *ngFor="let department of selectedDepartment">{{ department }}</p>
@@ -38,7 +42,7 @@
     <p *ngFor="let genre of selectedGenre">{{ genre }}</p>
   </div>-->
   <ul>
-    <li *ngFor="let article of articles">
+    <li *ngFor="let article of articles | paginate: { itemsPerPage: 10, currentPage: p }">
       <ul>
         <li *ngFor="let department of article.tags[0]"
             [ngClass]="{
@@ -71,4 +75,5 @@
       <a href="{{ article.url }}">{{ article.title }}</a>
     </li>
   </ul>
+    <pagination-controls *ngIf="articles.length !== 0"(pageChange)="p = $event"></pagination-controls>
 </div>
