@@ -139,6 +139,20 @@
         }
     }
 
+    p {
+        color: #bbb;
+        font-size: 1.5em;
+        text-align: center;
+        margin-top: 5px;
+
+    }
+
     pagination-controls {
         margin: 3px;
+    }
+
+    button {
+        border: solid #eee;
+        margin: 2px;
+        width: 45%;
     }

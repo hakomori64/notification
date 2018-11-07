@@ -35,12 +35,10 @@
 
   <pagination-controls *ngIf="articles.length !== 0" (pageChange)="p = $event"></pagination-controls>
 
-  <!--<div *ngIf="selectedDepartment">
-    <p *ngFor="let department of selectedDepartment">{{ department }}</p>
-  </div>
-  <div *ngIf="selectedGenre">
-    <p *ngFor="let genre of selectedGenre">{{ genre }}</p>
-  </div>-->
+  <p *ngIf="articles.length === 0" class="Lora">
+    <strong>絞り込みに該当するお知らせはありません。</strong>
+  </p>
+
   <ul>
     <li *ngFor="let article of articles | paginate: { itemsPerPage: 10, currentPage: p }">
       <ul>

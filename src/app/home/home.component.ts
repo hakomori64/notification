@@ -110,21 +110,34 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  filtering(departmentList:string[], genreList:string[]) {
+    this.articles = [];
+    let _articles = [];
+    
+    for(let i = 0; i < this.originalArticles.length; i++) {
+      if(this.originalArticles[i].tags[0].some(function (v) {
+        return departmentList.includes(v);
+      })) {
+        _articles.push(this.originalArticles[i]);
+      }
+    }
+
+    for(let i = 0; i < _articles.length; i++) {
+      if(_articles[i].tags[1].some(function (v) {
+        return genreList.includes(v);
+      })) {
+        this.articles.push(_articles[i]);
+      }
+    }
+  }
+
   changeDepartment(event) {
     //console.log(event);
+    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat());
+    /*
     this.articles = [];
     let _articles:Article[] = [];
     let genreList = this.selectedGenre.concat();
-
-    if (event.value.includes("All")) {
-      this.selectedDepartment = this.departmentList.concat();
-      this.selectedDepartment.push("All");
-    }
-
-    if (event.value.includes("None")) {
-      this.selectedDepartment = [];
-      this.selectedDepartment.push("None");
-    }
 
     //console.log(event)
     for(let i = 0; i < this.originalArticles.length; i++) {
@@ -141,27 +154,17 @@ export class HomeComponent implements OnInit {
       })) {
         this.articles.push(_articles[i]);
       }
-    }
+    }*/
 
   }
 
   changeGenre(event) {
     //console.log(event);
+    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat());
+    /*
     this.articles = [];
     let _articles:Article[] = [];
     let departmentList = this.selectedDepartment.concat();
-
-    if (event.value.includes("All")) {
-      this.selectedGenre = this.genres.concat();
-      this.selectedGenre.push("All");
-      //console.log(this.selectedGenre);
-      //console.log(this.genres);
-    }
-
-    if (event.value.includes("None")) {
-      this.selectedGenre = [];
-      this.selectedGenre.push("None");
-    }
 
     //console.log(event)
     for(let i = 0; i < this.originalArticles.length; i++) {
@@ -177,25 +180,30 @@ export class HomeComponent implements OnInit {
       })) {
         this.articles.push(_articles[i]);
       }
-    }
+    }*/
   }
+
   checkallDepartments(event) {
     console.log("checkallDepartments function is called");
     this.selectedDepartment = this.departmentList.concat();
+    this.filtering(this.selectedDepartment, this.selectedGenre);
   }
 
   uncheckallDepartments(event) {
     console.log("uncheckallDepartments function is called");
     this.selectedDepartment = [];
+    this.filtering(this.selectedDepartment, this.selectedGenre);
   }
 
   checkallGenre(event) {
     console.log("checkallGenre function is called");
     this.selectedGenre = this.genres.concat();
+    this.filtering(this.selectedDepartment, this.selectedGenre);
   }
 
   uncheckallGenre(event) {
     console.log("uncheckallGenre function is called");
     this.selectedGenre = [];
+    this.filtering(this.selectedDepartment, this.selectedGenre);
   }
 }
