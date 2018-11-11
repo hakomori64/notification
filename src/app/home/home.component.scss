@@ -103,6 +103,14 @@
                     background-color: pink;
                 }
 
+                li.me {
+                    background-color: aquamarine;
+                }
+
+                li.ee {
+                    background-color: #4B64A1;
+                }
+
                 li.cancelled {
                     background-color: gray;
                 }
@@ -155,4 +163,8 @@
         border: solid #eee;
         margin: 2px;
         width: 45%;
+    }
+
+    li.important {
+        background-color: pink;
     }

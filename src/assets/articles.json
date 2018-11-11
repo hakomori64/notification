@@ -2,90 +2,111 @@
     [
         {
             "title":"平成30年度後期　出席登録状況報告（保護者への通知）とそれに伴う事前確認のお願い（八王子キャンパス）",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/wp-content/uploads/2018/10/54e2d536f928eb1b484a38c8eab81ee3.pdf",
-            "tags":[["BS","CS","MS","ES"], ["告知","4年次","確認"]]
+            "tags":[["BS","CS","MS","ES"], ["告知","その他","確認"]]
         },
         {
             "title":"【重要】４年次生向け 2019年3月卒業予定の学生へ",
+            "isImportant": true,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/47629/",
-            "tags": [["DS"],["卒業研究"]]
+            "tags": [["DS"],["その他"]]
         },
         {
             "title":"【CS学部】ＣＳ基礎実験レポート（テーマＣ）受講者へ",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/47622/",
-            "tags":[["CS"],["告知","受講者","レポート"]]
+            "tags":[["CS"],["告知","その他"]]
         },
         {
             "title":"平成30年度後期　授業アンケート実施について",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/wp-content/uploads/2018/10/e942d9e69c5698e77cf7a8d93f6f98f9.pdf",
             "tags":[["BS","CS","MS","ES","HS","DS"],["告知"]]
         },
         {
             "title":"現4年生　現大学院2年生　就職支援イベント（11月イベント告知）",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/47591/",
             "tags":[["BS","CS","MS","ES","院"],["告知","就職情報"]]
         },{
             "title":"【重要】２年次生へ「コース配属」・「専門スキル演習」",
+            "isImportant": true,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/47547/",
-            "tags":[["DS"],["クラス分け","募集","2年次"]]
+            "tags":[["DS"],["クラス分け","募集","その他"]]
         },{
             "title":"【CS学部】1年次生　実験ガイダンスの実施について",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/47577/",
-            "tags":[["CS"],["告知","1年次"]]
+            "tags":[["CS"],["告知","その他"]]
         },{
             "title":"『キャリア開発特論』（日本人クラス）履修予定の皆さんへ【各回の概要および学会、インターンシップ等で欠席する場合】",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/46897/",
-            "tags":[["院"],["告知","受講者"]]
+            "tags":[["院"],["告知","その他"]]
         },{
             "title":"模擬面接実施に関して（模擬面接官役の協力をしていただく学部4年生、大学院2年生へ）",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/46333/",
-            "tags":[["BS","CS","MS","ES"],["告知","募集","4年次"]]
+            "tags":[["BS","CS","MS","ES"],["告知","募集","その他"]]
         },{
             "title":"『キャリア開発特論』履修者（日本人学生）へのお願い【重要Part2】※リマインド",
+            "isImportant": true,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/22750/",
-            "tags":[["院"],["告知","受講者"]]
+            "tags":[["院"],["告知","その他"]]
         },{
             "title":"２０１９年　海外語学研修（フィリピン）",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/2105/",
             "tags":[["BS","CS","MS","ES","院","HS","DS"],["告知","募集"]]
         },{
             "title":"２０１８年度　海外語学研修（イギリス）",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/2100/",
             "tags":[["BS","CS","MS","ES","院","HS","DS"],["告知","募集"]]
         },{
             "title":"清水建設グループ企業「業界研究会」の開催について【対象:工学部機械工学科および電気電子工学科3年生】",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/24196/",
-            "tags":[["ME","EE","ES"],["告知","3年次","募集"]]
+            "tags":[["ME","EE","ES"],["告知","その他","募集"]]
         },{
             "title":"『学内合同企業説明会』の開催について【対象:学部4年生および大学院修士2年生】",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/22056/",
-            "tags":[["CS"],["告知","4年次"]]
+            "tags":[["CS"],["告知","その他"]]
         },{
             "title":"CG検定＿テキスト・問題集受け渡しのお知らせ",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/47529/",
             "tags":[["BS","CS","MS","ES","院"],["告知"]]
         },{
             "title":"11/7就職マッチング会のお知らせ！（ＩＴエンジニアを目指す方へ）",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/47103/",
             "tags":[["BS","CS","MS","ES","院"],["告知","就職情報"]]
         },{
             "title":"【重要】 １年次生へ「スキル演習」説明会について",
+            "isImportant": true,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/47507/",
-            "tags":[["DS"],["告知","受講者"]]
+            "tags":[["DS"],["告知","その他"]]
         },{
             "title":"看護学科「災害看護学」再試験について",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/47475/",
-            "tags":[["NU"],["告知","受講者"]]
+            "tags":[["NU"],["告知","その他"]]
         },{
             "title":"（重要）後期　キャリアデザインⅣ　10月30日（火）授業に関して",
+            "isImportant": true,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/43695/",
-            "tags":[["BS","CS","MS"],["告知","受講者"]]
+            "tags":[["BS","CS","MS"],["告知","その他"]]
         },{
             "title":"【BS学部】2年生コース配属説明会について（重要）",
+            "isImportant": true,
             "url":"https://service.cloud.teu.ac.jp/inside2/wp-content/uploads/2018/10/51fbd566dd4f633d3968626eb1390c1a.pdf",
-            "tags":[["BS"],["告知","2年次"]]
+            "tags":[["BS"],["告知","その他"]]
         },{
             "title":"『新卒応援ハローワークガイダンス』の開催について【対象:学部4年生および大学院修士2年生】",
+            "isImportant": false,
             "url":"https://service.cloud.teu.ac.jp/inside2/archives/35073/",
             "tags":[["BS","CS","MS","ES","院"],["告知","就職情報"]]
         }

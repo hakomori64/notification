@@ -12,6 +12,9 @@
       </mat-expansion-panel-header>
 
       <mat-form-field>
+        <input matInput type="text" placeholder="Search Title" [(ngModel)]="title" (keyup)="onKey($event)">
+      </mat-form-field>
+      <mat-form-field>
         <mat-select name="departments" (selectionChange)="changeDepartment($event)" placeholder="学部一覧" [(value)]="selectedDepartment" [formControl]="departmentControl" multiple>
           <button mat-button (click)="checkallDepartments($event)" value="All">All</button>
           <button mat-button (click)="uncheckallDepartments($event)" value="None">None</button>
@@ -40,7 +43,7 @@
   </p>
 
   <ul>
-    <li *ngFor="let article of articles | paginate: { itemsPerPage: 10, currentPage: p }">
+    <li *ngFor="let article of articles | paginate: { itemsPerPage: 10, currentPage: p }" [className]="article.isImportant ? 'important' : 'other-class'">
       <ul>
         <li *ngFor="let department of article.tags[0]"
             [ngClass]="{
@@ -51,7 +54,9 @@
               'hs': department === 'HS',
               'ds': department === 'DS',
               'nu': department === 'NU',
-              'grad': department == '院'
+              'grad': department == '院',
+              'me': department == 'ME',
+              'ee': department == 'EE'
           }"
           class="department">{{ department }}
         </li>

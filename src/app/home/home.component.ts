@@ -26,6 +26,7 @@ export class HomeComponent implements OnInit {
   public articles:Article[];
   public originalArticles:Article[];
   public tags:string[];
+  public title:string;
 
   public departmentControl;
   public genreControl;
@@ -46,6 +47,13 @@ export class HomeComponent implements OnInit {
         {value: 'HS', viewValue: 'HS'},
         {value: 'DS', viewValue: 'DS'},
         {value: 'NU', viewValue: 'NU'}
+      ]
+    },
+    {
+      name: 'その他',
+      departments: [
+        {value: 'ME', viewValue: 'ME'},
+        {value: 'EE', viewValue: 'EE'}
       ]
     }
   ];
@@ -110,9 +118,10 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  filtering(departmentList:string[], genreList:string[]) {
+  filtering(departmentList:string[], genreList:string[], title:string) {
     this.articles = [];
     let _articles = [];
+    let __articles = [];
     
     for(let i = 0; i < this.originalArticles.length; i++) {
       if(this.originalArticles[i].tags[0].some(function (v) {
@@ -126,84 +135,63 @@ export class HomeComponent implements OnInit {
       if(_articles[i].tags[1].some(function (v) {
         return genreList.includes(v);
       })) {
-        this.articles.push(_articles[i]);
+        //console.log(_articles[i]);
+        __articles.push(_articles[i]);
       }
+    }
+
+    if (title !== '') {
+      for(let i = 0; i < __articles.length; i++) {
+        if(__articles[i].title.toUpperCase().search(title.toUpperCase()) >= 0) {
+          this.articles.push(__articles[i]);
+        }
+      }
+    } else {
+      this.articles = __articles.concat();
     }
   }
 
   changeDepartment(event) {
     //console.log(event);
-    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat());
-    /*
-    this.articles = [];
-    let _articles:Article[] = [];
-    let genreList = this.selectedGenre.concat();
-
-    //console.log(event)
-    for(let i = 0; i < this.originalArticles.length; i++) {
-      if (this.originalArticles[i].tags[0].some(function (v) {
-        return event.value.includes(v);
-      })) {
-        _articles.push(this.originalArticles[i]);
-      }
-    }
-
-    for(let i = 0; i < _articles.length; i++) {
-      if (_articles[i].tags[1].some(function (v) {
-        return genreList.includes(v);
-      })) {
-        this.articles.push(_articles[i]);
-      }
-    }*/
-
+    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat(), this.title.concat());
+    
   }
 
   changeGenre(event) {
     //console.log(event);
-    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat());
-    /*
-    this.articles = [];
-    let _articles:Article[] = [];
-    let departmentList = this.selectedDepartment.concat();
-
-    //console.log(event)
-    for(let i = 0; i < this.originalArticles.length; i++) {
-      if (this.originalArticles[i].tags[1].some(function (v) {
-        return event.value.includes(v);
-      })) {
-        _articles.push(this.originalArticles[i]);
-      }
-    }
-    for(let i = 0; i < _articles.length; i++) {
-      if (_articles[i].tags[0].some(function (v) {
-        return departmentList.includes(v);
-      })) {
-        this.articles.push(_articles[i]);
-      }
-    }*/
+    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat(), this.title.concat());
+   
   }
 
   checkallDepartments(event) {
     console.log("checkallDepartments function is called");
     this.selectedDepartment = this.departmentList.concat();
-    this.filtering(this.selectedDepartment, this.selectedGenre);
+    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat(), this.title.concat());
   }
 
   uncheckallDepartments(event) {
     console.log("uncheckallDepartments function is called");
     this.selectedDepartment = [];
-    this.filtering(this.selectedDepartment, this.selectedGenre);
+    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat(), this.title.concat());
   }
 
   checkallGenre(event) {
     console.log("checkallGenre function is called");
     this.selectedGenre = this.genres.concat();
-    this.filtering(this.selectedDepartment, this.selectedGenre);
+    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat(), this.title.concat());
   }
 
   uncheckallGenre(event) {
     console.log("uncheckallGenre function is called");
     this.selectedGenre = [];
-    this.filtering(this.selectedDepartment, this.selectedGenre);
+    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat(), this.title.concat());
+  }
+
+  onKey(event: any) {
+    if (this.title == null) {
+      this.title = '';
+    }
+    console.log(this.title);
+    this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat(), this.title.concat());
   }
 }
