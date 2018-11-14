@@ -140,10 +140,14 @@
                 }
 
                 li.others {
-                    background-color: black;
+                    background-color: teal;
                 }
 
             }
+        }
+
+        li.important {
+            background: #ffba84;
         }
     }
 
@@ -163,8 +167,4 @@
         border: solid #eee;
         margin: 2px;
         width: 45%;
-    }
-
-    li.important {
-        background-color: pink;
     }
