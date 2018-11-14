@@ -93,6 +93,7 @@ export class HomeComponent implements OnInit {
     this.genreControl = new FormControl(genresforInit);
     this.selectedDepartment = this.departmentList.concat();
     this.selectedGenre = this.genres.concat();
+    this.title = '';
     /*for(let i = 0; i < this.selectedGenre.length; i++) {
       console.log(this.selectedGenre[i]);
     }*/
