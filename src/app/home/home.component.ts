@@ -93,6 +93,7 @@ export class HomeComponent implements OnInit {
     this.genreControl = new FormControl(genresforInit);
     this.selectedDepartment = this.departmentList.concat();
     this.selectedGenre = this.genres.concat();
+    this.title = '';
     /*for(let i = 0; i < this.selectedGenre.length; i++) {
       console.log(this.selectedGenre[i]);
     }*/
@@ -122,6 +123,10 @@ export class HomeComponent implements OnInit {
     this.articles = [];
     let _articles = [];
     let __articles = [];
+
+    if (this.title == null) {
+      this.title = '';
+    }
     
     for(let i = 0; i < this.originalArticles.length; i++) {
       if(this.originalArticles[i].tags[0].some(function (v) {
@@ -153,6 +158,7 @@ export class HomeComponent implements OnInit {
 
   changeDepartment(event) {
     //console.log(event);
+    
     this.filtering(this.selectedDepartment.concat(), this.selectedGenre.concat(), this.title.concat());
     
   }
